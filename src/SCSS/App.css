@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,500&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #d1d1d1;
+  min-height: 100vh;
+  height: 100%;
+}
+
+#drum-machine {
+  border: 5px solid black;
+  border-radius: 8px;
+  background-color: #e3e6e3;
+  width: 55%;
+  min-width: 400px;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.appArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  min-width: 50%;
+  width: 350px;
+  padding-left: 2rem;
+}
+
+.displayArea {
+  width: 50%;
+  border: 3px dotted blue;
+  height: 100%;
+}
+
+.drum-pad {
+  border: 3px solid #663e1d;
+  border-radius: 8px;
+  margin: 0.5rem;
+  width: 80px;
+  height: 70px;
+  background-color: #d8d7d3;
+  font-family: "Zilla Slab", serif;
+  font-size: 1.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.drum-pad:active {
+  -webkit-transform: translate(0, 2px, 5px);
+          transform: translate(0, 2px, 5px);
+}
+
+.displayScreen {
+  background-color: black;
+  color: white;
+  font-size: 1.1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0.4rem;
+  height: 35px;
+  text-align: center;
+  width: 80%;
+}
+
+.inner-container {
+  width: 65px;
+  height: 30px;
+  background-color: #bebebe;
+  position: relative;
+  border-radius: 15px;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  margin: 1rem;
+}
+
+.inner-container:hover {
+  -webkit-box-shadow: 0 0 8px 1px #a9a9fa;
+          box-shadow: 0 0 8px 1px #a9a9fa;
+}
+
+#slider {
+  background-color: white;
+  width: 26px;
+  height: 24.5px;
+  margin: 3px;
+  border-radius: 50%;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.activeclass .inner-container {
+  background-color: rgba(35, 77, 216, 0.726);
+}
+
+.activeclass span {
+  -webkit-transform: translate(34px, 0px);
+          transform: translate(34px, 0px);
+}
+/*# sourceMappingURL=App.css.map */
