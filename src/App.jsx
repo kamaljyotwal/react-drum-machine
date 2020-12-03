@@ -109,11 +109,14 @@ class App extends Component {
       data: drumArray,
       display: "",
       styletoggler: "",
+      volume: 0.4,
     };
 
     this.displaytextLogicFunc = this.displaytextLogicFunc.bind(this);
     this.powerOff = this.powerOff.bind(this);
     this.bankChange = this.bankChange.bind(this);
+    this.volumeControl = this.volumeControl.bind(this);
+    this.clearDisplay = this.clearDisplay.bind(this);
   }
 
   displaytextLogicFunc(e) {
@@ -125,18 +128,27 @@ class App extends Component {
   }
 
   bankChange() {
-    // if (this.state.data == drumArray) {
-    //   this.setState({ data: pianoArray });
-    // }
-    // this.setState({ data: drumArray });
-    if (this.state.data == drumArray) {
-      this.setState({ data: pianoArray, display: "Piano Kit" });
-    } else {
-      this.setState({
-        data: drumArray,
-        display: "Drum Kit",
-      });
+    if (this.state.power) {
+      if (this.state.data == drumArray) {
+        this.setState({ data: pianoArray, display: "Piano Kit" });
+      } else {
+        this.setState({
+          data: drumArray,
+          display: "Drum Kit",
+        });
+      }
     }
+  }
+  clearDisplay() {
+    this.setState({ display: "" });
+  }
+
+  volumeControl(e) {
+    this.setState({
+      volume: e.target.value,
+      display: "Volume:" + " " + this.state.volume * 100,
+    });
+    setTimeout(() => this.clearDisplay(), 1000);
   }
 
   render() {
@@ -148,6 +160,7 @@ class App extends Component {
           buttonTitle={eachElement.keystroke}
           displayLabel={eachElement.soundBanner}
           displaytextLogicFunc={this.displaytextLogicFunc}
+          volume={this.state.volume}
         />
       );
     });
@@ -180,27 +193,35 @@ class App extends Component {
           <div className="appArea">{theMainRenderingConst}</div>
           <div className="displayArea">
             {/* <button onClick={this.powerOff}>power</button> */}
+            <div className="divContainingallControls">
+              {/* toggler here */}
+              <p className="powerLabel">power</p>
+              <div class="inner-container" onClick={this.powerOff} style={toggleContainer}>
+                <span id="slider" style={spanStyle} onClick={this.togglefunc}></span>
+              </div>
+              {/*-------  */}
 
-            {/* toggler here */}
-            <p>power</p>
-            <div class="inner-container" onClick={this.powerOff} style={toggleContainer}>
-              <span id="slider" style={spanStyle} onClick={this.togglefunc}></span>
+              <div className="displayScreen">{this.state.display}</div>
+
+              {/* volume slider */}
+              <input
+                type="range"
+                name="range"
+                id="rangeSlider"
+                min="0"
+                max="1"
+                step="0.1"
+                onChange={this.volumeControl}
+                value={this.state.volume}
+              />
+
+              {/* bank change */}
+              <p className="bankLabel">Bank</p>
+              <div class="inner-container" onClick={this.bankChange}>
+                <span id="slider" style={spanStyleforBank}></span>
+              </div>
+              {/* ------ */}
             </div>
-            {/*-------  */}
-
-            <div className="displayScreen">{this.state.display}</div>
-
-            {/* bank change */}
-            <p>Bank</p>
-            <p>power</p>
-            <div
-              class="inner-container"
-              onClick={this.bankChange}
-              // style={toggleContainer}
-            >
-              <span id="slider" style={spanStyleforBank}></span>
-            </div>
-            {/* ------ */}
           </div>
         </div>
       </div>
@@ -230,6 +251,7 @@ class Inner1 extends Component {
       var soundSource = e.target.children[0];
       soundSource.currentTime = 0;
       soundSource.play();
+      soundSource.volume = this.props.volume;
       this.props.displaytextLogicFunc(this.props.displayLabel);
     }
   }
