@@ -130,7 +130,7 @@ class App extends Component {
 
   bankChange() {
     if (this.state.power) {
-      if (this.state.data == drumArray) {
+      if (this.state.data === drumArray) {
         this.setState({ data: pianoArray, display: "Piano Kit" });
       } else {
         this.setState({
@@ -149,7 +149,7 @@ class App extends Component {
     if (this.state.power) {
       this.setState({
         volume: e.target.value,
-        display: "Volume:" + " " + this.state.volume * 100,
+        display: `volume ` + this.state.volume * 100,
       });
       setTimeout(() => this.clearDisplay(), 1000);
     }
@@ -186,10 +186,10 @@ class App extends Component {
       toggleContainer.transition = "all 500ms linear";
     }
 
-    if (this.state.data == pianoArray) {
+    if (this.state.data === pianoArray) {
       spanStyleforBank.float = "right";
     }
-    if (this.state.data == drumArray) {
+    if (this.state.data === drumArray) {
       spanStyleforBank.float = "left";
     }
     // ------------------------------------------------------------------------------------
