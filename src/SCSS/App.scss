@@ -31,14 +31,11 @@
   flex-wrap: wrap;
   min-width: 50%;
   width: 350px;
-  // min-width: 320px;
-  // border: 1px solid red;
   padding-left: 2rem;
 }
 
 .displayArea {
   width: 40%;
-  // border: 5px solid green;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -58,9 +55,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
-.drum-pad:active {
-  transform: translate(0, 2px, 5px);
+  box-shadow: 0 2px 2px 1px rgb(104, 104, 104);
+  &:active {
+    transform: translate3d(0, 1px, 0);
+    box-shadow: none;
+  }
 }
 
 .displayScreen {
@@ -99,20 +98,13 @@
   border-radius: 50%;
   transition: 300ms;
 }
-.activeclass .inner-container {
-  background-color: rgba(35, 77, 216, 0.726);
-}
-
-.activeclass span {
-  transform: translate(34px, 0px);
-}
 
 #rangeSlider {
   padding: 1.2rem 0 1.5rem 0;
   width: 70%;
 }
+
 .divContainingallControls {
-  // border: 1px solid red;
   width: 95%;
   margin: 0 auto;
   text-align: center;
@@ -121,6 +113,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .powerLabel,
 .bankLabel {
   font-family: Zilla Slab, sans-serif;

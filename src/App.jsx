@@ -119,6 +119,7 @@ class App extends Component {
     this.clearDisplay = this.clearDisplay.bind(this);
   }
 
+  // -------------------functions controlling the controller-right area--------------------------------
   displaytextLogicFunc(e) {
     this.setState({ display: e });
   }
@@ -139,17 +140,21 @@ class App extends Component {
       }
     }
   }
+
   clearDisplay() {
     this.setState({ display: "" });
   }
 
   volumeControl(e) {
-    this.setState({
-      volume: e.target.value,
-      display: "Volume:" + " " + this.state.volume * 100,
-    });
-    setTimeout(() => this.clearDisplay(), 1000);
+    if (this.state.power) {
+      this.setState({
+        volume: e.target.value,
+        display: "Volume:" + " " + this.state.volume * 100,
+      });
+      setTimeout(() => this.clearDisplay(), 1000);
+    }
   }
+  // --------------------------------------------------------------------------------------
 
   render() {
     const theMainRenderingConst = this.state.data.map((eachElement, i, mainArray) => {
@@ -165,6 +170,7 @@ class App extends Component {
       );
     });
 
+    // ------------------------conditional rendering of styles----------------------------------------
     const spanStyle = {
       float: "left",
     };
@@ -186,21 +192,22 @@ class App extends Component {
     if (this.state.data == drumArray) {
       spanStyleforBank.float = "left";
     }
+    // ------------------------------------------------------------------------------------
 
     return (
       <div id="display">
         <div id="drum-machine">
           <div className="appArea">{theMainRenderingConst}</div>
           <div className="displayArea">
-            {/* <button onClick={this.powerOff}>power</button> */}
             <div className="divContainingallControls">
               {/* toggler here */}
               <p className="powerLabel">power</p>
               <div class="inner-container" onClick={this.powerOff} style={toggleContainer}>
                 <span id="slider" style={spanStyle} onClick={this.togglefunc}></span>
               </div>
-              {/*-------  */}
+              {/*-------*/}
 
+              {/* this is the  display screen */}
               <div className="displayScreen">{this.state.display}</div>
 
               {/* volume slider */}
@@ -215,7 +222,7 @@ class App extends Component {
                 value={this.state.volume}
               />
 
-              {/* bank change */}
+              {/* bank change toggler */}
               <p className="bankLabel">Bank</p>
               <div class="inner-container" onClick={this.bankChange}>
                 <span id="slider" style={spanStyleforBank}></span>
@@ -255,7 +262,6 @@ class Inner1 extends Component {
       this.props.displaytextLogicFunc(this.props.displayLabel);
     }
   }
-
   keyEventFunction(e) {
     if (this.props.power) {
       if (e.key.toUpperCase() === this.props.buttonTitle) {

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,500&display=swap");
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -11,15 +11,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   background-color: #d1d1d1;
   min-height: 100vh;
   height: auto;
@@ -38,17 +38,17 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .appArea {
@@ -56,7 +56,7 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   min-width: 50%;
   width: 350px;
   padding-left: 2rem;
@@ -69,11 +69,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   min-width: 280px;
 }
 
@@ -90,17 +90,21 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   cursor: pointer;
+  -webkit-box-shadow: 0 2px 2px 1px #686868;
+  box-shadow: 0 2px 2px 1px #686868;
 }
 
 .drum-pad:active {
-  -webkit-transform: translate(0, 2px, 5px);
-          transform: translate(0, 2px, 5px);
+  -webkit-transform: translate3d(0, 1px, 0);
+  transform: translate3d(0, 1px, 0);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .displayScreen {
@@ -130,7 +134,7 @@
 
 .inner-container:hover {
   -webkit-box-shadow: 0 0 8px 1px #a9a9fa;
-          box-shadow: 0 0 8px 1px #a9a9fa;
+  box-shadow: 0 0 8px 1px #a9a9fa;
 }
 
 #slider {
@@ -141,15 +145,6 @@
   border-radius: 50%;
   -webkit-transition: 300ms;
   transition: 300ms;
-}
-
-.activeclass .inner-container {
-  background-color: rgba(35, 77, 216, 0.726);
-}
-
-.activeclass span {
-  -webkit-transform: translate(34px, 0px);
-          transform: translate(34px, 0px);
 }
 
 #rangeSlider {
@@ -166,14 +161,14 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .powerLabel,
